@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased font-sans;
+    margin: 0;
+    min-height: 100vh;
+  }
+}
+
+/* Print-specific styles for invoices */
+@media print {
+  /* Hide navigation, sidebar, headers, and action buttons during printing */
+  nav, aside, header, .no-print, button, .action-buttons {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .print-area {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    box-shadow: none !important;
+    border: none !important;
+    page-break-inside: avoid;
+  }
+
+  @page {
+    margin: 1.5cm;
+    size: auto;
+  }
+}
